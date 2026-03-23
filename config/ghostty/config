@@ -1,0 +1,23 @@
+# Theme
+theme = TokyoNight Night
+
+# Font
+font-family = "JetBrainsMono Nerd Font"
+font-style = Regular
+
+# Window
+window-padding-x = 14
+window-padding-y = 14
+confirm-close-surface=false
+resize-overlay = never
+background-opacity = 0.90
+background-blur-radius = 20
+
+# Cursor styling
+cursor-style = "block"
+cursor-style-blink = false
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+
+macos-option-as-alt = left
