@@ -17,7 +17,9 @@ background-blur-radius = 20
 cursor-style = "block"
 cursor-style-blink = false
 
+# Pass through to tmux
+keybind = ctrl+tab=unbind
+keybind = ctrl+shift+tab=unbind
+
 # Slowdown mouse scrolling
 mouse-scroll-multiplier = 0.95
-
-macos-option-as-alt = left
