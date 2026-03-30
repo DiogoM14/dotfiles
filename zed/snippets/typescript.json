@@ -1,0 +1,123 @@
+{
+  "Angular Standalone Component (ngscomp)": {
+    "prefix": "ngscomp",
+    "body": [
+      "import { Component } from '@angular/core';",
+      "",
+      "@Component({",
+      "  selector: '${1:app-component}',",
+      "  imports: [${2:CommonModule}],",
+      "  templateUrl: './${3:component}.component.html',",
+      "  styleUrls: ['./${3:component}.component.scss'],",
+      "})",
+      "export class ${4:ComponentName} {",
+      "  constructor() { }",
+      "}"
+    ],
+    "description": "Standalone component boilerplate (Angular 20)"
+  },
+
+  "Injectable Service (ngservice)": {
+    "prefix": "ngservice",
+    "body": [
+      "import { Injectable, inject } from '@angular/core';",
+      "import { HttpClient } from '@angular/common/http';",
+      "import { Observable } from 'rxjs';",
+      "",
+      "@Injectable({",
+      "  providedIn: 'root'",
+      "})",
+      "export class ${1:MyService} {",
+      "  private http = inject(HttpClient);",
+      "",
+      "  constructor() {}",
+      "",
+      "  get<T>(url: string): Observable<T> {",
+      "    return this.http.get<T>(url);",
+      "  }",
+      "}"
+    ],
+    "description": "Service with `providedIn: 'root'` using `inject()` for HttpClient"
+  },
+
+  "Signal State Service (ngsigservice)": {
+    "prefix": "ngsigservice",
+    "body": [
+      "import { Injectable, signal } from '@angular/core';",
+      "",
+      "@Injectable({ providedIn: 'root' })",
+      "export class ${1:AppStateService} {",
+      "  private _count = signal(0);",
+      "  readonly count = this._count.asReadonly();",
+      "",
+      "  increment() {",
+      "    this._count.update(v => v + 1);",
+      "  }",
+      "",
+      "  set(value: number) {",
+      "    this._count.set(value);",
+      "  }",
+      "}"
+    ],
+    "description": "Service exposing Signals for simple app state"
+  },
+
+  "Standalone Directive (ngdir)": {
+    "prefix": "ngdir",
+    "body": [
+      "import { Directive, ElementRef, Renderer2 } from '@angular/core';",
+      "",
+      "@Directive({",
+      "  standalone: true,",
+      "  selector: '[${1:appDirective}]'",
+      "})",
+      "export class ${2:AppDirective} {",
+      "  constructor(private el: ElementRef, private renderer: Renderer2) {",
+      "    // Example: add a class",
+      "    // this.renderer.addClass(this.el.nativeElement, 'my-class');",
+      "  }",
+      "}"
+    ],
+    "description": "Standalone directive skeleton"
+  },
+
+  "Standalone Pipe (ngpipe)": {
+    "prefix": "ngpipe",
+    "body": [
+      "import { Pipe, PipeTransform } from '@angular/core';",
+      "",
+      "@Pipe({",
+      "  standalone: true,",
+      "  name: '${1:myPipe}'",
+      "})",
+      "export class ${2:MyPipe} implements PipeTransform {",
+      "  transform(value: any, ...args: any[]): any {",
+      "    return value;",
+      "  }",
+      "}"
+    ],
+    "description": "Standalone pipe implementing PipeTransform"
+  },
+
+  "Guard CanActivate (ngguard)": {
+    "prefix": "ngguard",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { CanActivate, Router } from '@angular/router';",
+      "",
+      "@Injectable({ providedIn: 'root' })",
+      "export class ${1:AuthGuard} implements CanActivate {",
+      "  constructor(private router: Router) {}",
+      "",
+      "  canActivate(): boolean {",
+      "    const allowed = /* check auth */ true;",
+      "    if (!allowed) {",
+      "      this.router.navigate(['/login']);",
+      "    }",
+      "    return allowed;",
+      "  }",
+      "}"
+    ],
+    "description": "Basic CanActivate guard pattern"
+  }
+}
